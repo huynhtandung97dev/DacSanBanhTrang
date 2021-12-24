@@ -1,0 +1,277 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@section Style{
+	<link href="~/css/site.css" rel="stylesheet" />
+	<style type="text/css">
+		.module.home-lt1 h2.modtitle:before {
+			display: contents;
+		}
+	</style>
+	<link href="~/lightbox2-2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
+}
+<div class="container page-builder-ltr">
+	<div class="row row_k43m row-style ">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_hmsd block block_2">
+			<div class="home4-banner-1 row clearfix ">
+				<div class="item-1 col-lg-4 col-md-4 col-sm-4 col-xs-4 mrb-30 banners">
+					<div>
+						<a style=" text-align: center;" title="Static Image" asp-action="PhoiSuong">
+							<img src="~/Images/Category/Menu1.jpg" />
+						</a>
+					</div>
+				</div>
+				<div class="item-2 col-lg-4 col-md-4 col-sm-4 col-xs-4 mrb-30 banners">
+					<div>
+						<a style=" text-align: center;" title="Static Image" asp-action="KiTrang">
+							<img src="~/Images/Category/Menu2.jpg" />
+						</a>
+					</div>
+				</div>
+				<div class="item-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 mrb-30 banners">
+					<div>
+						<a style=" text-align: center;" title="Static Image" asp-action="GiaVi">
+							<img src="~/Images/Category/Menu3.jpg" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_hmsd block block_2">
+			<div class="home4-banner-1 row clearfix ">
+				@*hidden-xs*@
+				<div class="item-1 col-lg-2 col-md-2 col-sm-2 col-xs-2  mrb-30 banners"></div>
+				<div class="item-1 col-lg-4 col-md-4 col-sm-4 col-xs-4 mrb-30 banners">
+					<div>
+						<a style=" text-align: center;" title="Static Image" asp-action="TronSan">
+							<img src="~/Images/Category/Menu4.jpg" />
+						</a>
+					</div>
+				</div>
+				<div class="item-2 col-lg-4 col-md-4 col-sm-4 col-xs-4 mrb-30 banners">
+					<div>
+						<a style=" text-align: center;" title="Static Image" asp-action="ThinhHanh">
+							<img src="~/Images/Category/Menu5.jpg" />
+						</a>
+					</div>
+				</div>
+				<div class="item-1 col-lg-2 col-md-2 col-sm-2 col-xs-2 mrb-30 banners"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@{
+	var data = ViewBag.Data as List<Product>;
+	var slider = ViewBag.Slider as List<Product>;
+}
+
+<div class="container">
+	<div class="container page-builder-ltr">
+		<div class="row row-style row_a2">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_1bi4  col-style block block_5 title_neo2">
+				<div class="module so-listing-tabs-ltr default-nav clearfix img-float label-1 home-lt1">
+					<div class="head-title font-ct" style="border-color:#ff5e00;">
+						<h2 class="modtitle" style="background: #ff5e00">
+							<span style="margin-left: -30px;">
+								Bán chạy nhất
+							</span>
+						</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row js-slick">
+			@foreach (var item in slider)
+			{
+				<div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<div class="product-item-container">
+						<div class="left-block">
+							<div class="product-image-container img-wrapper">
+								<a class="example-image-link"
+								   href="@item.ImageUrl"
+								   data-lightbox="example-set">
+									<img class="example-image"
+										 src="@item.ImageUrl"
+										 alt="">
+								</a>
+							</div>
+						</div>
+						<div class="right-block">
+							<div class="caption">
+								<h4>@item.ProcductName</h4>
+								<div class="total-price clearfix">
+									<div class="price price-left"><span>@item.Price?.ToString("#,#")đ</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+	</div>
+</div>
+
+<section id="box-link2" class="section-style">
+	<div class="container page-builder-ltr">
+		<div class="row row-style row_a2">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_1bi4  col-style block block_5 title_neo2">
+				<div class="module so-listing-tabs-ltr default-nav clearfix img-float label-1 home-lt1">
+					<div class="head-title font-ct" style="border-color:#ff5e00;">
+						<h2 class="modtitle" style="background: #ff5e00">
+							<span style="margin-left: -30px;">
+								Sản phẩm
+							</span>
+						</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container product-detail">
+		<div class="row">
+			<div id="content" class="col-md-12 col-sm-12 col-xs-12">
+				<div class="products-category">
+					<div class="products-list grid row number-col-3 so-filter-gird"
+						 style="margin-left: 0px; margin-right: 0px">
+						@foreach (var item in data)
+						{
+							<div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-6">
+								<div class="product-item-container">
+									<div class="left-block">
+										<div class="product-image-container img-wrapper">
+											<a class="example-image-link"
+											   href="@item.ImageUrl"
+											   data-lightbox="mygallery">
+												<img class="example-image"
+													 src="@item.ImageUrl"
+													 alt="">
+											</a>
+										</div>
+									</div>
+									<div class="right-block">
+										<div class="caption">
+											<h4>@item.ProcductName</h4>
+											<div class="total-price clearfix">
+												<div class="price price-left"><span>@item.Price?.ToString("#,#")đ</span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="box-link2" class="section-style">
+	<div class="container page-builder-ltr">
+		<div class="row row-style row_a2">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col_1bi4  col-style block block_5 title_neo2">
+				<div class="home1-banner-2 clearfix">
+					<div class=" col-lg-12 col-md-12 col-sm-12">
+						<div>
+							<img src="~/site/image/duoi.jpg" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container page-builder-ltr" style="margin-top: 30px">
+	<div class="home1-sevices">
+		<ul class="footer-slider row">
+			<li class="col-md-3 col-6">
+				<h5 class="text-center" style="color: white">AN TOÀN</h5>
+			</li>
+			<li class="col-md-3">
+				<h5 class="text-center" style="color: white">CHẤT LƯỢNG</h5>
+			</li>
+			<li class="col-md-3">
+				<h5 class="text-center" style="color: white">TỰ NHIÊN</h5>
+			</li>
+			<li class="col-md-3">
+				<h5 class="text-center" style="color: white">CHÍNH HÃNG</h5>
+			</li>
+			<li class="col-md-3 col-6">
+				<h5 class="text-center" style="color: white">AN TOÀN</h5>
+			</li>
+			<li class="col-md-3">
+				<h5 class="text-center" style="color: white">CHẤT LƯỢNG</h5>
+			</li>
+			<li class="col-md-3">
+				<h5 class="text-center" style="color: white">TỰ NHIÊN</h5>
+			</li>
+			<li class="col-md-3">
+				<h5 class="text-center" style="color: white">CHÍNH HÃNG</h5>
+			</li>
+		</ul>
+		
+	</div>
+</div>
+
+
+@section Scripts{
+
+	<script>
+		$(".js-slick").slick({
+			dots: false,
+			infinite: true,
+			speed: 300,
+			slidesToShow: 4,
+			slidesToScroll: 2,
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 1,
+						infinite: true,
+						dots: true
+					}
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
+				}
+				// You can unslick at a given breakpoint now by adding:
+				// settings: "unslick"
+				// instead of a settings object
+			]
+		});
+
+		$('.footer-slider').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+			arrows: false,
+			infinite: true,
+
+			responsive: [
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 1,
+						infinite: true,
+					}
+				},
+				// You can unslick at a given breakpoint now by adding:
+				// settings: "unslick"
+				// instead of a settings object
+			]
+
+		});
+	</script>
+	<script src="~/lightbox2-2.11.3/dist/js/lightbox-plus-jquery.min.js"></script>
+}

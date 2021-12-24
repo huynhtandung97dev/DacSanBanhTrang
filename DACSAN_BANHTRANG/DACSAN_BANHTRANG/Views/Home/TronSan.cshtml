@@ -1,0 +1,55 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@section Style{
+	<link href="~/lib/slick-carousel/slick.css" rel="stylesheet" />
+	<link href="~/lightbox2-2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
+}
+
+@{
+	var data = ViewBag.Slider as List<Product>;
+}
+
+<section id="box-link2" class="section-style">
+	<div class="container product-detail">
+		<div class="row">
+			<div id="content" class="col-md-12 col-sm-12 col-xs-12">
+				<div class="products-category">
+					<div class="products-list grid row number-col-3 so-filter-gird"
+						 style="margin-left: 0px; margin-right: 0px">
+						@foreach (var item in data)
+						{
+							<div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-6">
+								<div class="product-item-container">
+									<div class="left-block">
+										<div class="product-image-container img-wrapper">
+											<a class="example-image-link"
+											   href="@item.ImageUrl"
+											   data-lightbox="mygallery">
+												<img class="example-image"
+													 src="@item.ImageUrl"
+													 alt="">
+											</a>
+										</div>
+									</div>
+									<div class="right-block">
+										<div class="caption">
+											<h4>@item.ProcductName</h4>
+											<div class="total-price clearfix">
+												<div class="price price-left"><span>@item.Price?.ToString("#,#")đ</span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+@section Scripts{
+	<script src="~/lightbox2-2.11.3/dist/js/lightbox-plus-jquery.min.js"></script>
+}
